@@ -23,19 +23,21 @@ app.post('/contact', function(request, response) {
   var validation= request.body.validation;
   var out = "contact name: " + name + "\ncontact email: " + email + "\nmobile: " + mobile + "\nreferral: " + referral + "\nvalidation: " + validation + "\n";
 
-  postmark.send({
-    "From": "munair@quilombolarecreation.com",
-    "To": "info@quilombolarecreation.com",
-    "Subject": "Quilombola Recreation Information Request",
-    "TextBody": out,
-    "Tag": "registrant"
-  }, function(error, success) {
-       if(error) {
-          console.error("Unable to send via postmark: " + error.message);
-         return;
-       }
-    console.info("Sent to postmark for delivery")
-  });
+  if (validation === "capoeira") {
+    postmark.send({
+      "From": "munair@quilombolarecreation.com",
+      "To": "info@quilombolarecreation.com",
+      "Subject": "Quilombola Recreation Information Request",
+      "TextBody": out,
+      "Tag": "registrant"
+      }, function(error, success) {
+         if(error) {
+            console.error("Unable to send via postmark: " + error.message);
+           return;
+         }
+      console.info("Sent to postmark for delivery")
+    });
+  }
 
   response.render('contact', { pagename:       'quilombola recreation', });
 });
