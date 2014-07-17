@@ -29,8 +29,10 @@ git checkout development || git checkout -b development
 git branch
 sleep 5
 vi $1
-git add $1
+git add --all $1
 git commit -m "$2"
+git remote remove origin
+git remote add origin https://github.com/munair/www-quilombolarecreation-com.git
 git push origin development
 [ $3 == "noprompting" ] || while true; do
     read -p "shall we push changes to the staging GitHub repository and the staging instance on Heroku? " yn
@@ -47,7 +49,12 @@ sleep 5
 git merge development
 git push origin staging
 cat ~/.netrc | grep heroku || heroku login && heroku keys:add ~/.ssh/id_rsa.pub
-heroku git:remote -a staging-quilombolarecreation-com -r staging-heroku
+git remote remove heroku
+git remote remove staging-heroku
+heroku apps:destroy dev-quilombolarecreation-com --confirm dev-quilombolarecreation-com
+heroku apps:create dev-quilombolarecreation-com
+heroku domains:add dev.quilombolarecreation.com --app dev-quilombolarecreation-com
+heroku git:remote -a dev-quilombolarecreation-com -r staging-heroku
 git push staging-heroku staging:master
 [ $3 == "noprompting" ] || while true; do
     read -p "shall we push changes to the master GitHub repository and the production instance on Heroku? " yn
@@ -62,6 +69,10 @@ git branch
 sleep 5
 git merge staging
 git push origin master
+git remote remove production-heroku
+heroku apps:destroy www-quilombolarecreation-com --confirm www-quilombolarecreation-com
+heroku apps:create www-quilombolarecreation-com
+heroku domains:add www.quilombolarecreation.com --app www-quilombolarecreation-com
 heroku git:remote -a www-quilombolarecreation-com -r production-heroku
 git push production-heroku master:master
 git checkout development
