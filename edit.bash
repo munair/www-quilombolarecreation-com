@@ -32,7 +32,7 @@ vi $1
 git add --all $1
 git commit -m "$2"
 git remote remove origin
-git remote add origin https://github.com/munair/www-quilombolarecreation-com.git
+git remote add origin git@github.com:munair/www-quilombolarecreation-com.git
 git push origin development
 [ $3 == "noprompting" ] || while true; do
     read -p "shall we push changes to the staging GitHub repository and the staging instance on Heroku? " yn
