@@ -67,7 +67,7 @@ strong {font-weight:600;}
 #content p strong.title {font-size:16px;}
 #content table,p:last-child{margin:0;}
 #content #faq {margin-top:20px;}
-#content #faq table,p {margin-bottom:20px;font-size:10px;line-height:17px;}
+#content #faq table {margin-bottom:20px;font-size:10px;line-height:17px;}
 #content #faq table td {width:70px;}
 #content h2.faq {font-size:13px;margin-bottom:10px;cursor:pointer;display:block;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content h2.faq:hover, #content h2.faq.active {border-left:4px solid #ffcc00;padding-left:10px;color:#ffcc00;}
@@ -79,7 +79,7 @@ strong {font-weight:600;}
 #content .form br{clear:both;}
 #content .form .submit {width:120px;padding:6px 8px;float:left;display:block;overflow:hidden;margin-top:10px;text-decoration:none;background: rgba(0,0,0,.4);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#eee;border:0;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content .form .submit:hover {background:rgba(0,0,0,.6);cursor:pointer;}
-#content .form textarea[required], #content .form input[required] {background:rgba(0,0,0,.4);}
+#content .form textarea[required], #content .form input[required] {background:rgba(200,200,200,0.5;}
 #content .form textarea[required]:valid, #content .form input[required]:valid {background:rgba(0,0,0,.2);}
 #contactform p.loading {width:100%;height:100px;background:url(../images/loading.gif) no-repeat center center;opacity:0.4}
 
