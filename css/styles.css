@@ -60,7 +60,7 @@ strong {font-weight:600;}
 
 #content {position:absolute;width:520px;max-width:520px;left:-520px;top:100px;bottom:20px;padding-right:5%;color:#fff;font-family: 'NeuropolXFreeRegular', sans-serif;animation: slidein 1s;-moz-animation: slidein 1s; -webkit-animation: slidein 1s;-o-animation: slidein 1s;display:none;overflow: auto;}
 #content h1 {font-family: 'NeuropolXFreeRegular';font-size:20px;font-weight:300;margin-bottom:20px;}
-#content table,p {margin-bottom:10px;color:#ffffff;font-size:13px;line-height:20px;}
+#content table,p {margin-bottom:10px;color:#ffffff;font-size:11px;line-height:18px;}
 #content table,p:last-child {margin:0;}
 #content p a {color:#ffcc00; text-decoration:none;border-bottom: 1px solid transparent;-webkit-transition: 0.5s ease;transition: 0.5s ease;}
 #content p a:hover {border-bottom: 1px solid #ffcc00;}
@@ -68,7 +68,7 @@ strong {font-weight:600;}
 #content table,p:last-child{margin:0;}
 #content #faq {margin-top:20px;}
 #content #faq table,p {margin-bottom:20px;}
-#content #faq table {font-size:10px;line-height:17px}
+#content #faq table {font-family:'Source Sans Pro';font-size:10px;line-height:17px}
 #content #faq table td {width:70px;}
 #content h2.faq {font-size:13px;margin-bottom:10px;cursor:pointer;display:block;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content h2.faq:hover, #content h2.faq.active {border-left:4px solid #ffcc00;padding-left:10px;color:#ffcc00;}
