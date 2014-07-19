@@ -17,6 +17,7 @@ app.get('/capoeira', function(request, response) { var htmlBuffer = fs.readFileS
 app.get('/music', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/faq', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/contact', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/inc_home.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_home.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_capoeira.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_capoeira.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_music.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_music.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_faq.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_faq.html', 'utf-8'); response.send(htmlBuffer); });
