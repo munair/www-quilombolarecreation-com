@@ -1,8 +1,13 @@
 #!/bin/bash
 # script name : kr.bash
 # 
-git clone git@heroku.com:www-quilombolarecreation-kr.git
+git clone git@github.com:munair/www-quilombolarecreation-kr.git
 cd www-quilombolarecreation-kr
+cp -f ../js/* js
+cp -f ../css/* css
+cp -f ../images/* images
+cp -f ../fonts/* fonts
+cp -f ../sounds/* sounds
 cat ../README.md | sed 's/-com/-kr/g' | sed 's/\.com/\.kr/g' > README.md
 cat ../edit.bash | sed 's/-com/-kr/g' | sed 's/\.com/\.kr/g' > edit.bash
 cat ../inc_contact.html | sed 's/-com/-kr/g' | sed 's/\.com/\.kr/g' > inc_contact.html
