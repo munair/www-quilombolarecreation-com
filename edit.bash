@@ -27,7 +27,7 @@
 # 
 git checkout development || git checkout -b development
 git branch
-echo "going to add the following files to the local git repository and then push them to the development repository on GitHub: "
+echo "going to add the following files to the git repository: "
 ls $1
 git add --all $1
 git commit -m "$2"
@@ -35,31 +35,31 @@ git remote remove origin
 git remote add origin git@github.com:munair/www-quilombolarecreation-com.git
 git push origin development
 [ $3 == "noprompting" ] || while true; do
-    read -p "shall we push changes to the staging GitHub repository? " yn
+    read -p "shall we push changes to the staging GitHub repository and the staging instance on Heroku? " yn
     case $yn in
-        [Yy]* ) echo "proceeding..."; 
-	git checkout 
-	git checkout staging || git checkout -b staging
-	git branch
-	git merge development
-	git push origin staging
-        [Nn]* ) echo "alrighty then...";
-	read -p "shall we push changes to the staging instance on Heroku? " yn
-	case $yn in
-	        [Yy]* ) echo "proceeding...";
-		cat ~/.netrc | grep heroku || heroku login && heroku keys:add ~/.ssh/id_rsa.pub
-		git remote remove heroku
-		git remote remove staging-heroku
-		heroku apps:destroy dev-quilombolarecreation-com --confirm dev-quilombolarecreation-com
-		heroku apps:create dev-quilombolarecreation-com
-		heroku domains:add dev.quilombolarecreation.com --app dev-quilombolarecreation-com
-		heroku git:remote -a dev-quilombolarecreation-com -r staging-heroku
-		git push staging-heroku staging:master
-		break;;
-	        [Nn]* ) exit;;
-	        * ) echo "please answer yes or no.";;
-	esac
-	break;;
+        [Yy]* ) echo "proceeding..."; break;;
+        [Nn]* ) exit;;
+        * ) echo "please answer yes or no.";;
+    esac
+done
+git checkout 
+git checkout staging || git checkout -b staging
+git branch
+git merge development
+git push origin staging
+cat ~/.netrc | grep heroku || heroku login && heroku keys:add ~/.ssh/id_rsa.pub
+git remote remove heroku
+git remote remove staging-heroku
+heroku apps:destroy dev-quilombolarecreation-com --confirm dev-quilombolarecreation-com
+heroku apps:create dev-quilombolarecreation-com
+heroku domains:add dev.quilombolarecreation.com --app dev-quilombolarecreation-com
+heroku git:remote -a dev-quilombolarecreation-com -r staging-heroku
+git push staging-heroku staging:master
+[ $3 == "noprompting" ] || while true; do
+    read -p "shall we push changes to the master GitHub repository and the production instance on Heroku? " yn
+    case $yn in
+        [Yy]* ) echo "proceeding..."; break;;
+        [Nn]* ) exit;;
         * ) echo "please answer yes or no.";;
     esac
 done
