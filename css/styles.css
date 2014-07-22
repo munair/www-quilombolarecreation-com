@@ -59,7 +59,7 @@ strong {font-weight:600;}
 .bg {position:fixed;z-index:-1;display:none;top:0;left:0;right:0;bottom:0;background:url(../images/background.jpg) repeat-x top;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
 
 #content {position:absolute;width:520px;max-width:520px;left:-520px;top:100px;bottom:20px;padding-right:5%;color:#fff;font-family: 'NeuropolXFreeRegular', sans-serif;animation: slidein 1s;-moz-animation: slidein 1s; -webkit-animation: slidein 1s;-o-animation: slidein 1s;display:none;overflow: auto;}
-#content h1 {font-family: 'NeuropolXFreeRegular';font-size:20px;font-weight:300;margin-bottom:20px;}
+#content h1 {font-family: 'NeuropolXFreeRegular';color:#ff9900;font-size:20px;font-weight:300;margin-bottom:20px;}
 #content p {margin-bottom:10px;color:#ffffff;font-size:11px;line-height:16px;}
 #content table {font-family:'Source Sans Pro';margin-bottom:10px;color:#ffffff;font-size:10px;line-height:15px;}
 #content p:last-child {margin:0;}

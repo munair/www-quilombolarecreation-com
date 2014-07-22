@@ -27,8 +27,8 @@
 # 
 git checkout development || git checkout -b development
 git branch
-sleep 5
-vi $1
+echo "going to add the following files to the git repository: "
+ls $1
 git add --all $1
 git commit -m "$2"
 git remote remove origin
@@ -45,7 +45,6 @@ done
 git checkout 
 git checkout staging || git checkout -b staging
 git branch
-sleep 5
 git merge development
 git push origin staging
 cat ~/.netrc | grep heroku || heroku login && heroku keys:add ~/.ssh/id_rsa.pub
@@ -66,7 +65,6 @@ git push staging-heroku staging:master
 done
 git checkout master
 git branch
-sleep 5
 git merge staging
 git push origin master
 git remote remove production-heroku
