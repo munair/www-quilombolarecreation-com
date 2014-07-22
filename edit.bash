@@ -43,7 +43,8 @@ git push origin development
 	git branch
 	git merge development
 	git push origin staging
-        [Nn]* ) read -p "shall we push changes to the staging instance on Heroku? " yn
+        [Nn]* ) echo "alrighty then...";
+	read -p "shall we push changes to the staging instance on Heroku? " yn
 	case $yn in
 	        [Yy]* ) echo "proceeding...";
 		cat ~/.netrc | grep heroku || heroku login && heroku keys:add ~/.ssh/id_rsa.pub
