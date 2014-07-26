@@ -70,6 +70,7 @@ strong {font-weight:600;}
 #content #faq {margin-top:20px;}
 #content #faq p {margin-bottom:20px;}
 #content #faq table td {width:70px;}
+#content #faq table p {font-family: 'NeuropolXFreeRegular';margin-bottom:10px;color:#cccccc;font-size:11px;line-height:16px;}
 #content h2.faq {font-size:13px;margin-bottom:10px;cursor:pointer;display:block;-webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out;}
 #content h2.faq:hover, #content h2.faq.active {border-left:4px solid #ffcc00;padding-left:10px;color:#ffcc00;}
 #content .form {margin-top:10px;}
