@@ -14,7 +14,7 @@ app.use("/sounds", express.static(__dirname + '/sounds'));
 
 app.get('/', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/capoeira', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
-app.get('/music', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
+app.get('/membership', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/faq', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/contact', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_capoeira.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_capoeira.html', 'utf-8'); response.send(htmlBuffer); });
