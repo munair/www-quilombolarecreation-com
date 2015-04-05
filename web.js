@@ -16,11 +16,9 @@ app.get('/', function(request, response) { var htmlBuffer = fs.readFileSync('ind
 app.get('/capoeira', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/membership', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/faq', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
-app.get('/contact', function(request, response) { var htmlBuffer = fs.readFileSync('index.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_capoeira.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_capoeira.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_membership.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_membership.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_faq.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_faq.html', 'utf-8'); response.send(htmlBuffer); });
-app.get('/inc_contact.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_contact.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_email.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_email.html', 'utf-8'); response.send(htmlBuffer); });
 app.get('/inc_formconfirmation.html', function(request, response) { var htmlBuffer = fs.readFileSync('inc_formconfirmation.html', 'utf-8'); response.send(htmlBuffer); });
 
@@ -28,7 +26,8 @@ app.post('/inc_email.html', function(request, response) {
   var name = request.body.name;
   var email = request.body.email;
   var mobile = request.body.mobile;
-  var message = request.body.message;
+  var medical = request.body.medical;
+  var background = request.body.background;
   var validation = request.body.validation;
   var out = 'contact name: ' + name 
           + '\ncontact email: ' + email 
@@ -40,7 +39,7 @@ app.post('/inc_email.html', function(request, response) {
   postmark.send({
     "From" : "munair@quilombolarecreation.com",
     "To" : "munair@quilombolarecreation.com",
-    "Subject" : "Contact from www.quilombolarecreation.com",
+    "Subject" : "Membership Application from www.quilombolarecreation.com",
     "Tag" : "Inquiry",
     "TextBody" : out
   }, function(error, success) {
