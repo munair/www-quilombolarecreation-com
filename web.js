@@ -1,6 +1,6 @@
 var express = require('express');
+var http = require('http');
 var fs = require('fs');
-var postmark = require("postmark")
 
 var app = express();
 
@@ -38,13 +38,34 @@ app.post('/inc_email.html', function(request, response) {
           + '\nvalidation: ' + validation 
           + '\n';
 
-  var client = new postmark.Client("f2392957-2e91-4ace-9f07-a72da382dd4c");
-  client.sendEmail({
-    "From": "munair@quilombola.com",
-    "To": "munair@gmail.com",
-    "Subject" : "Membership Application from www.quilombolarecreation.com",
-    "TextBody" : out
+var options = {
+  host: 'api.postmarkapp.com',
+  port: 80,
+  path: '/email',
+  method: 'POST',
+  headers: { 
+    'accept': 'application/json',
+    'content-type': 'application/json',
+    'x-postmark-server-token': 'f2392957-2e91-4ace-9f07-a72da382dd4c'
+  }
+};
+
+var req = http.request(options, function(res) {
+  console.log('STATUS: ' + res.statusCode);
+  console.log('HEADERS: ' + JSON.stringify(res.headers));
+  res.setEncoding('utf8');
+  res.on('data', function (chunk) {
+    console.log('BODY: ' + chunk);
   });
+});
+
+req.on('error', function(e) {
+  console.log('problem with request: ' + e.message);
+});
+
+  // write data to request body
+  req.write("{From: 'munair@quilombola.com', To: 'munair@gmail.com', Subject: 'Membership Application from www.quilombolarecreation.com', HtmlBody: out}");
+  req.end();
 
   response.redirect('/inc_formconfirmation.html');
 });
