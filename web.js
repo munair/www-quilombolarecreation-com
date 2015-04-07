@@ -1,6 +1,6 @@
 var express = require('express');
 var fs = require('fs');
-var postmark = require("postmark")("db375280-7dd3-4240-89db-1e19ee9e939e")
+var postmark = require("postmark")
 
 var app = express();
 
@@ -38,18 +38,12 @@ app.post('/inc_email.html', function(request, response) {
           + '\nvalidation: ' + validation 
           + '\n';
 
-  postmark.send({
-    "From" : "munair@quilombolarecreation.com",
-    "To" : "munair@quilombolarecreation.com",
+  var client = new postmark.Client("f2392957-2e91-4ace-9f07-a72da382dd4c");
+  client.sendEmail({
+    "From": "munair@quilombola.com",
+    "To": "munair@gmail.com",
     "Subject" : "Membership Application from www.quilombolarecreation.com",
-    "Tag" : "Inquiry",
     "TextBody" : out
-  }, function(error, success) {
-      if(error) {
-          console.error("Unable to send via postmark: " + error.message);
-         return;
-      }
-      console.info("Sent to postmark for delivery")
   });
 
   response.redirect('/inc_formconfirmation.html');
