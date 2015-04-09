@@ -26,15 +26,20 @@ app.get('/inc_formconfirmation.html', function(request, response) { var htmlBuff
 
 app.post('/inc_email.html', function(request, response) {
   var name = request.body.name;
+  var fbid = request.body.fbid;
   var email = request.body.email;
   var mobile = request.body.mobile;
   var medical = request.body.medical;
+  var referral = request.body.referral;
   var background = request.body.background;
   var validation = request.body.validation;
-  var out = 'contact name: ' + name 
-          + '\ncontact email: ' + email 
+  var out = 'name: ' + name 
+          + '\nfbid: ' + fbid
+          + '\nemail: ' + email 
           + '\nmobile: ' + mobile 
-          + '\nmessage: ' + message
+          + '\nbackground: ' + background
+          + '\nmedical: ' + medical
+          + '\nreferral: ' + referral
           + '\nvalidation: ' + validation 
           + '\n';
   var options = {
@@ -49,7 +54,7 @@ app.post('/inc_email.html', function(request, response) {
     }
   };
 
-  if (validation === "capoeira") {
+  if (validation === "i am human") {
     var req = http.request(options, function(res) {
       console.log('STATUS: ' + res.statusCode);
       console.log('HEADERS: ' + JSON.stringify(res.headers));
@@ -64,11 +69,16 @@ app.post('/inc_email.html', function(request, response) {
     });
 
     // write data to request body
-    req.write("{From: 'munair@quilombola.com', To: 'munair@gmail.com', Subject: 'Membership Application from www.quilombolarecreation.com', HtmlBody: out}");
+    req.write("{From: 'munair@quilombola.com', To: 'munair@gmail.com', Subject: 'Membership Application from www.quilombolarecreation.com', TextBody: '");
+    req.write(out);
+    req.write("'}");
     req.end();
 
+    response.redirect('/inc_formconfirmation.html');
+  } else {
+    response.redirect('/inc_email.html');
   }
-  response.redirect('/inc_formconfirmation.html');
+
 });
 
 var port = process.env.PORT || 8080;
