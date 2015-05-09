@@ -15,12 +15,11 @@ sleep 5
 /bin/cp ../sounds/* sounds
 cat ../README.md | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > README.md
 cat ../edit.bash | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > edit.bash
-cat ../inc_capoeira.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_capoeira.html
-cat ../inc_music.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_music.html
-cat ../inc_faq.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_faq.html
-cat ../inc_contact.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_contact.html
-cat ../inc_email.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_email.html
-cat ../inc_formconfirmation.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_formconfirmation.html
+cat ../ko/inc_capoeira.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_capoeira.html
+cat ../ko/inc_membership.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_membership.html
+cat ../ko/inc_faq.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_faq.html
+cat ../ko/inc_email.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_email.html
+cat ../ko/inc_formconfirmation.html | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > inc_formconfirmation.html
 cat ../package.json | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > package.json
 cat ../web.js | sed 's/quilombolarecreation-com/quilombolarecreation-kr/g' | sed 's/quilombolarecreation\.com/quilombolarecreation\.kr/g' > web.js
 bash edit.bash . "[AUTOMATED] Pushing changes to KR website from COM website excluding index.html in particular. To modify index.html git clone the repo and modify by hand." noprompting
